@@ -14,10 +14,10 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace DOANHTTT_1
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         OracleConnection conn;
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -39,15 +39,13 @@ namespace DOANHTTT_1
                 " USER ID = " + textBox1.Text +
                 "; Password = " + textBox2.Text + ";";
 
-            //conn = new OracleConnection(strConnectDB);
-
             try {
                 conn = new OracleConnection(strConnectDB);
                 conn.Open();
                 //MessageBox.Show("Đăng nhập thành công!");
                 //conn.Close();
 
-                Form2 form2 = new Form2(conn);
+                CurrentUser form2 = new CurrentUser(conn);
                 form2.Show();
 
                 this.Hide();

@@ -1,6 +1,6 @@
 ﻿namespace DOANHTTT_1
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -55,7 +55,6 @@
             this.label2.Size = new System.Drawing.Size(86, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Username";
-            //this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -66,7 +65,6 @@
             this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Password";
-            //this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox1
             // 
@@ -97,10 +95,11 @@
             this.button_click.UseVisualStyleBackColor = true;
             this.button_click.Click += new System.EventHandler(this.button_click_Click);
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(706, 414);
             this.Controls.Add(this.button_click);
             this.Controls.Add(this.textBox2);
@@ -109,7 +108,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.Name = "Form1";
+            this.Name = "Login";
             this.Text = "Login ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
