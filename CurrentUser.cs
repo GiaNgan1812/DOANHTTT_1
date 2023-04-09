@@ -33,7 +33,7 @@ namespace DOANHTTT_1
             dataGridView1.AutoResizeColumns();
 
             //
-            OracleDataAdapter adapter1 = new OracleDataAdapter("SELECT sys_context('USERENV', 'SESSION_USER') as current_user," +
+            OracleDataAdapter adapter1 = new OracleDataAdapter("SELECT DISTINCT sys_context('USERENV', 'SESSION_USER') as current_user," +
                 " sys_context('USERENV', 'CURRENT_SCHEMA') as current_schema," +
                 " sys_context('USERENV', 'SESSIONID') as session_id," +
                 " sys_context('USERENV', 'IP_ADDRESS') as ip_address," +
@@ -69,6 +69,7 @@ namespace DOANHTTT_1
 
         private void button5_Click(object sender, EventArgs e)
         {
+            conn.Close();
             User_Role user_role = new User_Role(conn);
             user_role.Show();
             this.Hide();

@@ -1,4 +1,5 @@
 ﻿using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace DOANHTTT_1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            conn.Close();
             CurrentUser current_user = new CurrentUser(conn);
             current_user.Show();
             this.Hide();
@@ -34,19 +36,46 @@ namespace DOANHTTT_1
 
         private void CreateRole_Click(object sender, EventArgs e)
         {
+                OracleCommand conn_proc_2 = new OracleCommand("BAP.DA_CREATE_ROLE", conn);
+                conn_proc_2.CommandType = CommandType.StoredProcedure;
+
+                conn_proc_2.Parameters.Add("A_Name", OracleDbType.Varchar2).Value = RoleName.Text;
+
+                OracleParameter conn_proc_p = new OracleParameter();
+                conn_proc_p.ParameterName = "A_SUCCESS";
+                conn_proc_p.OracleDbType = OracleDbType.Int32;
+                conn_proc_p.Direction = System.Data.ParameterDirection.Output;
+                conn_proc_2.Parameters.Add(conn_proc_p);
+
+
             try
             {
-                OracleCommand conn_proc = new OracleCommand("DA_CREATE_USER_ROLE", conn);
-                conn_proc.CommandType = CommandType.StoredProcedure;
+                conn.Open();
 
-                conn_proc.Parameters.Add("A_Name", OracleDbType.Varchar2).Value = RoleName.Text;
-                conn_proc.Parameters.Add("A_Option", OracleDbType.Varchar2).Value = "ROLE";
+                OracleCommand cmd = new OracleCommand("ALTER SESSION SET \"_ORACLE_SCRIPT\" = TRUE", conn);
+                cmd.ExecuteNonQuery();
 
-                conn_proc.ExecuteNonQuery();
+                conn_proc_2.ExecuteNonQuery();
+
+                OracleDecimal result = (OracleDecimal)conn_proc_p.Value;
+                int intValue = result.ToInt32();
+
+                if (intValue == 1)
+                {
+                    MessageBox.Show("Create Role success!");
+                }
+                else
+                {
+                    MessageBox.Show("Create Role fail!");
+                }
             }
-            catch (OracleException er)
+            catch (OracleException ex)
             {
-                MessageBox.Show("Error: " + er.Message);
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

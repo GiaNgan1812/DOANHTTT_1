@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.oracleCommand1 = new Oracle.ManagedDataAccess.Client.OracleCommand();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -158,6 +159,10 @@
             this.dataGridView3.Size = new System.Drawing.Size(965, 152);
             this.dataGridView3.TabIndex = 15;
             // 
+            // oracleCommand1
+            // 
+            this.oracleCommand1.Transaction = null;
+            // 
             // CurrentUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -199,5 +204,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private Oracle.ManagedDataAccess.Client.OracleCommand oracleCommand1;
     }
 }
