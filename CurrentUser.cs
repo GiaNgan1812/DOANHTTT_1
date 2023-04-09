@@ -36,8 +36,6 @@ namespace DOANHTTT_1
             OracleDataAdapter adapter1 = new OracleDataAdapter("SELECT DISTINCT sys_context('USERENV', 'SESSION_USER') as current_user," +
                 " sys_context('USERENV', 'CURRENT_SCHEMA') as current_schema," +
                 " sys_context('USERENV', 'SESSIONID') as session_id," +
-                " sys_context('USERENV', 'IP_ADDRESS') as ip_address," +
-                " sys_context('USERENV', 'HOST') as host," +
                 " granted_role as role_name \r\nFROM dba_role_privs" +
                 " \r\nWHERE grantee = sys_context('USERENV', 'SESSION_USER')", conn);
             DataTable dataTable1 = new DataTable();
@@ -83,6 +81,22 @@ namespace DOANHTTT_1
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            conn.Close();
+            Privs privs = new Privs(conn);
+            privs.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            conn.Close();
+            Database da = new Database(conn);
+            da.Show();
+            this.Hide();
         }
     }
 }
