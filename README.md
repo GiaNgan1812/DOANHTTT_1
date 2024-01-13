@@ -6,6 +6,6 @@ Các Procedure:
 
 Không hiển thị trên winform: encryption, audit, ...
 
-Báo cáo: https://docs.google.com/document/d/1Hwpao6ySVGHxexvcwis9dxaHxWiRN93Gjmk_O0WgTDA/edit?usp=sharing 
+Báo cáo: https://drive.google.com/file/d/1D3vxhGsVzLr-sNH5CeS2J0_IKdJZWV5e/view?usp=sharing 
 
 Demo: https://drive.google.com/file/d/1TUXJJR_P3WPIvzaLckblDnZaI9UqoATF/view?usp=sharing 
